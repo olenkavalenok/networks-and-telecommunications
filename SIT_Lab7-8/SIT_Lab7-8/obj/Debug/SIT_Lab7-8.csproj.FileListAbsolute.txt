@@ -1,0 +1,28 @@
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\SIT_Lab7-8.exe.config
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\SIT_Lab7-8.exe
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\SIT_Lab7-8.pdb
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csprojAssemblyReference.cache
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7_8.Properties.Resources.resources
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csproj.GenerateResource.cache
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csproj.CoreCompileInputs.cache
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.exe
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.pdb
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7_8.SMTP.resources
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7_8.POP3.resources
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\OpenPop.dll
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\OpenPop.xml
+C:\Users\Анастасия\source\repos\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csproj.CopyComplete
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\SIT_Lab7-8.exe.config
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\SIT_Lab7-8.exe
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\SIT_Lab7-8.pdb
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\OpenPop.dll
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\bin\Debug\OpenPop.xml
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csprojAssemblyReference.cache
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7_8.POP3.resources
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7_8.Properties.Resources.resources
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7_8.SMTP.resources
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csproj.GenerateResource.cache
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csproj.CoreCompileInputs.cache
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.csproj.CopyComplete
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.exe
+C:\Users\Оля\OneDrive\Рабочий стол\networks-master\SIT_Lab7-8\SIT_Lab7-8\obj\Debug\SIT_Lab7-8.pdb

@@ -1,0 +1,11 @@
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\bin\Debug\SIT_Lab5-6.exe.config
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\bin\Debug\SIT_Lab5-6.exe
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\bin\Debug\SIT_Lab5-6.pdb
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5-6.csprojAssemblyReference.cache
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5_6.Properties.Resources.resources
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5-6.csproj.GenerateResource.cache
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5-6.csproj.CoreCompileInputs.cache
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5-6.exe
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5-6.pdb
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5_6.HTTPClient.resources
+C:\Users\Анастасия\source\repos\SIT_Lab5-6\SIT_Lab5-6\obj\Debug\SIT_Lab5_6.FTPClient.resources
