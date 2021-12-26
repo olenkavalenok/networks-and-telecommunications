@@ -16,67 +16,67 @@ void PrintTcpPacket(char*, int);
 void ConvertToHex(char*, unsigned int);
 void PrintData(char*, int);
 
-// IP заголовок
+// IP Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 typedef struct ipHeader
 {
-	unsigned char ip_version : 4; // Номер версии: 1-4 бит (4 бита)
-	unsigned char ip_header_len : 4; // Длина заголовка: 5-8 бит (4 бита)
-	unsigned char ip_tos; // Тип сервиса: 9-16 бит (8 бит)
-	unsigned short ip_total_length; // Общая длина: 17-32 бит (16 бит)
-	unsigned short ip_id; // Идентификатор пакета: 16 бит
-	unsigned char ip_frag_offset : 5; // Смещение фрагмента: 13 бит
-	// Флаги
+	unsigned char ip_version : 4; // ГЌГ®Г¬ГҐГ° ГўГҐГ°Г±ГЁГЁ: 1-4 ГЎГЁГІ (4 ГЎГЁГІГ )
+	unsigned char ip_header_len : 4; // Г„Г«ГЁГ­Г  Г§Г ГЈГ®Г«Г®ГўГЄГ : 5-8 ГЎГЁГІ (4 ГЎГЁГІГ )
+	unsigned char ip_tos; // Г’ГЁГЇ Г±ГҐГ°ГўГЁГ±Г : 9-16 ГЎГЁГІ (8 ГЎГЁГІ)
+	unsigned short ip_total_length; // ГЋГЎГ№Г Гї Г¤Г«ГЁГ­Г : 17-32 ГЎГЁГІ (16 ГЎГЁГІ)
+	unsigned short ip_id; // Г€Г¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГЇГ ГЄГҐГІГ : 16 ГЎГЁГІ
+	unsigned char ip_frag_offset : 5; // Г‘Г¬ГҐГ№ГҐГ­ГЁГҐ ГґГ°Г ГЈГ¬ГҐГ­ГІГ : 13 ГЎГЁГІ
+	// Г”Г«Г ГЈГЁ
 	unsigned char ip_more_fragment : 1;
 	unsigned char ip_dont_fragment : 1;
 	unsigned char ip_reserved_zero : 1;
-	unsigned char ip_ttl; // Время жизни: 8 би
-	unsigned char ip_protocol; // Протокол верхнего уровня: 8 бит (TCP,UDP etc)
-	unsigned short ip_checksum; // Контрольная сумма: 16 бит
-	unsigned int ip_srcaddr; // IP-адрес источника: 32 бита
-	unsigned int ip_destaddr; // IP-адрес назначения: 32 бита
+	unsigned char ip_ttl; // Г‚Г°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ: 8 ГЎГЁ
+	unsigned char ip_protocol; // ГЏГ°Г®ГІГ®ГЄГ®Г« ГўГҐГ°ГµГ­ГҐГЈГ® ГіГ°Г®ГўГ­Гї: 8 ГЎГЁГІ (TCP,UDP etc)
+	unsigned short ip_checksum; // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г : 16 ГЎГЁГІ
+	unsigned int ip_srcaddr; // IP-Г Г¤Г°ГҐГ± ГЁГ±ГІГ®Г·Г­ГЁГЄГ : 32 ГЎГЁГІГ 
+	unsigned int ip_destaddr; // IP-Г Г¤Г°ГҐГ± Г­Г Г§Г­Г Г·ГҐГ­ГЁГї: 32 ГЎГЁГІГ 
 } IP_Header;
 
-// UDP заголовок
+// UDP Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 typedef struct udpHeader
 {
-	unsigned short source_port; // Порт источника: 16 бит
-	unsigned short dest_port; // Порт назначения: 16 бит
-	unsigned short udp_length; // UDP заголовок: 16 бит
-	unsigned short udp_checksum; // Контрольная сумма: 16 бит
+	unsigned short source_port; // ГЏГ®Г°ГІ ГЁГ±ГІГ®Г·Г­ГЁГЄГ : 16 ГЎГЁГІ
+	unsigned short dest_port; // ГЏГ®Г°ГІ Г­Г Г§Г­Г Г·ГҐГ­ГЁГї: 16 ГЎГЁГІ
+	unsigned short udp_length; // UDP Г§Г ГЈГ®Г«Г®ГўГ®ГЄ: 16 ГЎГЁГІ
+	unsigned short udp_checksum; // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г : 16 ГЎГЁГІ
 } UDP_Header;
 
-// TCP заголовок
+// TCP Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 typedef struct tcpHeader
 {
-	unsigned short source_port; // Порт источника: 0-15 бит (16 бит)
-	unsigned short dest_port; // Порт назначения: 16-31 бит (16 бит)
-	unsigned int sequence; // Номер последовательности: 32 бит
-	unsigned int acknowledge; // Номер подтверждения: 32 бит
-	unsigned char data_offset : 4; // Длина заголовка: 4 бит
-	unsigned char reserved_part1 : 3; // Зарезервировано: 3 бита
-	// Флаги
-	unsigned char ns : 1; // флаг NS
-	unsigned char fin : 1; // Флаг окончания
-	unsigned char syn : 1; // Флаг синхронизации
-	unsigned char rst : 1; // Флаг сброса
-	unsigned char psh : 1; // Флаг нажатия
-	unsigned char ack : 1; // Флаг подтверждения
-	unsigned char urg : 1; // Флаг необходимо
-	unsigned char ecn : 1; // Флаг эхо
-	unsigned char cwr : 1; // Флаг CWR
-	unsigned short window; // Размер окна: 16 бит 
-	unsigned short checksum; // Контрольная сумма: 16 бит
-	unsigned short urgent_pointer; // Указатель важности: 16 бит
+	unsigned short source_port; // ГЏГ®Г°ГІ ГЁГ±ГІГ®Г·Г­ГЁГЄГ : 0-15 ГЎГЁГІ (16 ГЎГЁГІ)
+	unsigned short dest_port; // ГЏГ®Г°ГІ Г­Г Г§Г­Г Г·ГҐГ­ГЁГї: 16-31 ГЎГЁГІ (16 ГЎГЁГІ)
+	unsigned int sequence; // ГЌГ®Г¬ГҐГ° ГЇГ®Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г®Г±ГІГЁ: 32 ГЎГЁГІ
+	unsigned int acknowledge; // ГЌГ®Г¬ГҐГ° ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГї: 32 ГЎГЁГІ
+	unsigned char data_offset : 4; // Г„Г«ГЁГ­Г  Г§Г ГЈГ®Г«Г®ГўГЄГ : 4 ГЎГЁГІ
+	unsigned char reserved_part1 : 3; // Г‡Г Г°ГҐГ§ГҐГ°ГўГЁГ°Г®ГўГ Г­Г®: 3 ГЎГЁГІГ 
+	// Г”Г«Г ГЈГЁ
+	unsigned char ns : 1; // ГґГ«Г ГЈ NS
+	unsigned char fin : 1; // Г”Г«Г ГЈ Г®ГЄГ®Г­Г·Г Г­ГЁГї
+	unsigned char syn : 1; // Г”Г«Г ГЈ Г±ГЁГ­ГµГ°Г®Г­ГЁГ§Г Г¶ГЁГЁ
+	unsigned char rst : 1; // Г”Г«Г ГЈ Г±ГЎГ°Г®Г±Г 
+	unsigned char psh : 1; // Г”Г«Г ГЈ Г­Г Г¦Г ГІГЁГї
+	unsigned char ack : 1; // Г”Г«Г ГЈ ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГї
+	unsigned char urg : 1; // Г”Г«Г ГЈ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г®
+	unsigned char ecn : 1; // Г”Г«Г ГЈ ГЅГµГ®
+	unsigned char cwr : 1; // Г”Г«Г ГЈ CWR
+	unsigned short window; // ГђГ Г§Г¬ГҐГ° Г®ГЄГ­Г : 16 ГЎГЁГІ 
+	unsigned short checksum; // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г : 16 ГЎГЁГІ
+	unsigned short urgent_pointer; // Г“ГЄГ Г§Г ГІГҐГ«Гј ГўГ Г¦Г­Г®Г±ГІГЁ: 16 ГЎГЁГІ
 } TCP_Header;
 
-// ICMP заголовок
+// ICMP Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 typedef struct icmpHeader
 {
-	BYTE type; // Тип: 1-8 бит (8 бита)
-	BYTE code; // Код: 9-16 бит (8 бита)
-	USHORT checksum; // Контрольная сумма 17-32 (16 бит)
-	USHORT id; // Идентификатор: 16 бит
-	USHORT seq; // Номер последовательности: 16 бит
+	BYTE type; // Г’ГЁГЇ: 1-8 ГЎГЁГІ (8 ГЎГЁГІГ )
+	BYTE code; // ГЉГ®Г¤: 9-16 ГЎГЁГІ (8 ГЎГЁГІГ )
+	USHORT checksum; // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г  17-32 (16 ГЎГЁГІ)
+	USHORT id; // Г€Г¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г°: 16 ГЎГЁГІ
+	USHORT seq; // ГЌГ®Г¬ГҐГ° ГЇГ®Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г®Г±ГІГЁ: 16 ГЎГЁГІ
 } ICMP_Header;
 
 FILE* logfile;
@@ -99,11 +99,11 @@ int main()
 	char hostname[100];
 	struct hostent* local;
 	WSADATA wsa;
-	logfile = fopen("C:\\Users\\Анастасия\\source\\repos\\SiT_Lab4\\log.txt", "w");
+	logfile = fopen("C:\\Users\\source\\repos\\SiT_Lab4\\log.txt", "w");
 	if (logfile == NULL)
 		printf("Unable to create file.");
 
-	// Инициализация Winsock
+	// Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Winsock
 	printf("\nInitialising Winsock...");
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
 	{
@@ -112,7 +112,7 @@ int main()
 	}
 	printf("Initialised");
 
-	// Создание RAW Socket
+	// Г‘Г®Г§Г¤Г Г­ГЁГҐ RAW Socket
 	printf("\nCreating RAW Socket...");
 
 	SOCKET sniffer = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
@@ -123,7 +123,7 @@ int main()
 	}
 	printf("Created.");
 
-	// Извлеките локальное имя хоста
+	// Г€Г§ГўГ«ГҐГЄГЁГІГҐ Г«Г®ГЄГ Г«ГјГ­Г®ГҐ ГЁГ¬Гї ГµГ®Г±ГІГ 
 	if (gethostname(hostname, sizeof(hostname)) == SOCKET_ERROR)
 	{
 		printf("Error : %d", WSAGetLastError());
@@ -131,7 +131,7 @@ int main()
 	}
 	printf("\nHost name : %s \n", hostname);
 
-	// Извлеките доступные IP-адреса локального хоста
+	// Г€Г§ГўГ«ГҐГЄГЁГІГҐ Г¤Г®Г±ГІГіГЇГ­Г»ГҐ IP-Г Г¤Г°ГҐГ±Г  Г«Г®ГЄГ Г«ГјГ­Г®ГЈГ® ГµГ®Г±ГІГ 
 	local = gethostbyname(hostname);
 	printf("\nAvailable Network Interfaces : \n");
 	if (local == NULL)
@@ -173,12 +173,12 @@ int main()
 	}
 	printf("Socket set.");
 
-	// Начало
+	// ГЌГ Г·Г Г«Г®
 	printf("\nStarted Sniffing\n");
 	printf("Packet Capture Statistics...\n");
 	StartSniffing(sniffer); //Happy Sniffing
 
-	// Конец
+	// ГЉГ®Г­ГҐГ¶
 	closesocket(sniffer);
 	WSACleanup();
 
@@ -211,24 +211,24 @@ void ProcessPacket(char* Buffer, int Size)
 	ip_header = (IP_Header*)Buffer;
 	//++total;
 
-	switch (ip_header->ip_protocol) // Проверьте Протокол и сделайте соответственно...
+	switch (ip_header->ip_protocol) // ГЏГ°Г®ГўГҐГ°ГјГІГҐ ГЏГ°Г®ГІГ®ГЄГ®Г« ГЁ Г±Г¤ГҐГ«Г Г©ГІГҐ Г±Г®Г®ГІГўГҐГІГ±ГІГўГҐГ­Г­Г®...
 	{
-	case 1: //ICMP протокол
+	case 1: //ICMP ГЇГ°Г®ГІГ®ГЄГ®Г«
 		//++icmp;
 		PrintIcmpPacket(Buffer, Size);
 		break;
 
-	case 6: //TCP протокол
+	case 6: //TCP ГЇГ°Г®ГІГ®ГЄГ®Г«
 		//++tcp;
 		PrintTcpPacket(Buffer, Size);
 		break;
 
-	case 17: //UDP протокол
+	case 17: //UDP ГЇГ°Г®ГІГ®ГЄГ®Г«
 		//++udp;
 		PrintUdpPacket(Buffer, Size);
 		break;
 
-	default: // другой протокол
+	default: // Г¤Г°ГіГЈГ®Г© ГЇГ°Г®ГІГ®ГЄГ®Г«
 		//++others;
 		fprintf(logfile, "Other protocol\n");
 		break;
@@ -236,7 +236,7 @@ void ProcessPacket(char* Buffer, int Size)
 	//printf("TCP : %d UDP : %d ICMP : %d Others : %d Total : %d\r", tcp, udp, icmp, others, total);
 }
 
-// вывод IP заголовка
+// ГўГ»ГўГ®Г¤ IP Г§Г ГЈГ®Г«Г®ГўГЄГ 
 void PrintIpHeader(char* Buffer)
 {
 	unsigned short iphdrlen;
@@ -249,23 +249,23 @@ void PrintIpHeader(char* Buffer)
 
 	fprintf(logfile, "\n");
 	fprintf(logfile, "IP Header\n");
-	fprintf(logfile, "Vers : %d\n", (unsigned int)ip_header->ip_version); // Номер версии: 1-4 бит (4 бита)
-	fprintf(logfile, "HLen : %d DWORDS or %d Bytes\n", (unsigned int)ip_header->ip_header_len, ((unsigned int)(ip_header->ip_header_len)) * 4); // Длина заголовка: 5-8 бит (4 бита)
-	fprintf(logfile, "Type Of Service : %d\n", (unsigned int)ip_header->ip_tos); // Тип сервиса: 9-16 бит (8 бит)
-	fprintf(logfile, "Total Length : %d Bytes(Size of Packet)\n", ntohs(ip_header->ip_total_length)); // Общая длина: 17-32 бит (16 бит)
-	fprintf(logfile, "Identification : %d\n", ntohs(ip_header->ip_id)); // Идентификатор пакета:  бит
-	fprintf(logfile, "Flags 1 : %d\n", (unsigned int)ip_header->ip_reserved_zero); // флаг: 1 бит
-	fprintf(logfile, "Flags 2 : %d\n", (unsigned int)ip_header->ip_dont_fragment); // флаг: 1 бит
-	fprintf(logfile, "Flags 3 : %d\n", (unsigned int)ip_header->ip_more_fragment); // флаг: 1 бит
-	fprintf(logfile, "Fragment Offset : %d\n", (unsigned int)ip_header->ip_frag_offset); // Смещение фрагмента: 13 бит
-	fprintf(logfile, "Time To Live : %d\n", (unsigned int)ip_header->ip_ttl); // Время жизни: 8 бит
-	fprintf(logfile, "Protocol : %d\n", (unsigned int)ip_header->ip_protocol); // Протокол верхнего уровня: 8 бит
-	fprintf(logfile, "Header Checksum : %d\n", ntohs(ip_header->ip_checksum)); // Контрольная сумма: 16 бит
-	fprintf(logfile, "Source IP address : %s\n", inet_ntoa(source.sin_addr)); // IP-адрес источника: 32 бита
-	fprintf(logfile, "Destination IP address : %s\n", inet_ntoa(dest.sin_addr)); // IP-адрес назначения: 32 бита
+	fprintf(logfile, "Vers : %d\n", (unsigned int)ip_header->ip_version); // ГЌГ®Г¬ГҐГ° ГўГҐГ°Г±ГЁГЁ: 1-4 ГЎГЁГІ (4 ГЎГЁГІГ )
+	fprintf(logfile, "HLen : %d DWORDS or %d Bytes\n", (unsigned int)ip_header->ip_header_len, ((unsigned int)(ip_header->ip_header_len)) * 4); // Г„Г«ГЁГ­Г  Г§Г ГЈГ®Г«Г®ГўГЄГ : 5-8 ГЎГЁГІ (4 ГЎГЁГІГ )
+	fprintf(logfile, "Type Of Service : %d\n", (unsigned int)ip_header->ip_tos); // Г’ГЁГЇ Г±ГҐГ°ГўГЁГ±Г : 9-16 ГЎГЁГІ (8 ГЎГЁГІ)
+	fprintf(logfile, "Total Length : %d Bytes(Size of Packet)\n", ntohs(ip_header->ip_total_length)); // ГЋГЎГ№Г Гї Г¤Г«ГЁГ­Г : 17-32 ГЎГЁГІ (16 ГЎГЁГІ)
+	fprintf(logfile, "Identification : %d\n", ntohs(ip_header->ip_id)); // Г€Г¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г° ГЇГ ГЄГҐГІГ :  ГЎГЁГІ
+	fprintf(logfile, "Flags 1 : %d\n", (unsigned int)ip_header->ip_reserved_zero); // ГґГ«Г ГЈ: 1 ГЎГЁГІ
+	fprintf(logfile, "Flags 2 : %d\n", (unsigned int)ip_header->ip_dont_fragment); // ГґГ«Г ГЈ: 1 ГЎГЁГІ
+	fprintf(logfile, "Flags 3 : %d\n", (unsigned int)ip_header->ip_more_fragment); // ГґГ«Г ГЈ: 1 ГЎГЁГІ
+	fprintf(logfile, "Fragment Offset : %d\n", (unsigned int)ip_header->ip_frag_offset); // Г‘Г¬ГҐГ№ГҐГ­ГЁГҐ ГґГ°Г ГЈГ¬ГҐГ­ГІГ : 13 ГЎГЁГІ
+	fprintf(logfile, "Time To Live : %d\n", (unsigned int)ip_header->ip_ttl); // Г‚Г°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ: 8 ГЎГЁГІ
+	fprintf(logfile, "Protocol : %d\n", (unsigned int)ip_header->ip_protocol); // ГЏГ°Г®ГІГ®ГЄГ®Г« ГўГҐГ°ГµГ­ГҐГЈГ® ГіГ°Г®ГўГ­Гї: 8 ГЎГЁГІ
+	fprintf(logfile, "Header Checksum : %d\n", ntohs(ip_header->ip_checksum)); // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г : 16 ГЎГЁГІ
+	fprintf(logfile, "Source IP address : %s\n", inet_ntoa(source.sin_addr)); // IP-Г Г¤Г°ГҐГ± ГЁГ±ГІГ®Г·Г­ГЁГЄГ : 32 ГЎГЁГІГ 
+	fprintf(logfile, "Destination IP address : %s\n", inet_ntoa(dest.sin_addr)); // IP-Г Г¤Г°ГҐГ± Г­Г Г§Г­Г Г·ГҐГ­ГЁГї: 32 ГЎГЁГІГ 
 }
 
-// Вывод TCP пакета
+// Г‚Г»ГўГ®Г¤ TCP ГЇГ ГЄГҐГІГ 
 void PrintTcpPacket(char* Buffer, int Size)
 {
 	unsigned short ip_header_lenght;
@@ -275,15 +275,15 @@ void PrintTcpPacket(char* Buffer, int Size)
 
 	fprintf(logfile, "\nTCP Packet");
 	fprintf(logfile, "\nIP Header\n");
-	PrintIpHeader(Buffer); // IP-заголовок
+	PrintIpHeader(Buffer); // IP-Г§Г ГЈГ®Г«Г®ГўГ®ГЄ
 
 	fprintf(logfile, "TCP Header\n");
-	fprintf(logfile, "Source Port : %u\n", ntohs(tcp_header->source_port)); // Порт источника: 0-15 бит (16 бит)
-	fprintf(logfile, "Destination Port : %u\n", ntohs(tcp_header->dest_port)); // Порт назначения: 16-31 бит (16 бит)
-	fprintf(logfile, "Sequence Number : %u\n", ntohl(tcp_header->sequence)); // Номер последовательности: 32 бит
-	fprintf(logfile, "Acknowledge Number : %u\n", ntohl(tcp_header->acknowledge)); // Номер подтверждения: 32 бит
-	fprintf(logfile, "Header Length : %d DWORDS or %d BYTES\n", (unsigned int)tcp_header->data_offset, (unsigned int)tcp_header->data_offset * 4); // Длина заголовка: 4 бита
-	// Флаги
+	fprintf(logfile, "Source Port : %u\n", ntohs(tcp_header->source_port)); // ГЏГ®Г°ГІ ГЁГ±ГІГ®Г·Г­ГЁГЄГ : 0-15 ГЎГЁГІ (16 ГЎГЁГІ)
+	fprintf(logfile, "Destination Port : %u\n", ntohs(tcp_header->dest_port)); // ГЏГ®Г°ГІ Г­Г Г§Г­Г Г·ГҐГ­ГЁГї: 16-31 ГЎГЁГІ (16 ГЎГЁГІ)
+	fprintf(logfile, "Sequence Number : %u\n", ntohl(tcp_header->sequence)); // ГЌГ®Г¬ГҐГ° ГЇГ®Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г®Г±ГІГЁ: 32 ГЎГЁГІ
+	fprintf(logfile, "Acknowledge Number : %u\n", ntohl(tcp_header->acknowledge)); // ГЌГ®Г¬ГҐГ° ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГї: 32 ГЎГЁГІ
+	fprintf(logfile, "Header Length : %d DWORDS or %d BYTES\n", (unsigned int)tcp_header->data_offset, (unsigned int)tcp_header->data_offset * 4); // Г„Г«ГЁГ­Г  Г§Г ГЈГ®Г«Г®ГўГЄГ : 4 ГЎГЁГІГ 
+	// Г”Г«Г ГЈГЁ
 	fprintf(logfile, "CWR Flag : %d\n", (unsigned int)tcp_header->cwr);
 	fprintf(logfile, "ECN Flag : %d\n", (unsigned int)tcp_header->ecn);
 	fprintf(logfile, "URG Flag : %d\n", (unsigned int)tcp_header->urg);
@@ -292,11 +292,11 @@ void PrintTcpPacket(char* Buffer, int Size)
 	fprintf(logfile, "RST Flag : %d\n", (unsigned int)tcp_header->rst);
 	fprintf(logfile, "SYN Flag : %d\n", (unsigned int)tcp_header->syn);
 	fprintf(logfile, "FIN Flag : %d\n", (unsigned int)tcp_header->fin);
-	fprintf(logfile, "Window Size: %d\n", ntohs(tcp_header->window)); // Размер окна: 16 бит
-	fprintf(logfile, "Checksum : %d\n", ntohs(tcp_header->checksum)); // Контрольная сумма: 16 бит
-	fprintf(logfile, "Urgent Pointer : %d\n", tcp_header->urgent_pointer); // Указатель важности: 16 бит
+	fprintf(logfile, "Window Size: %d\n", ntohs(tcp_header->window)); // ГђГ Г§Г¬ГҐГ° Г®ГЄГ­Г : 16 ГЎГЁГІ
+	fprintf(logfile, "Checksum : %d\n", ntohs(tcp_header->checksum)); // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г : 16 ГЎГЁГІ
+	fprintf(logfile, "Urgent Pointer : %d\n", tcp_header->urgent_pointer); // Г“ГЄГ Г§Г ГІГҐГ«Гј ГўГ Г¦Г­Г®Г±ГІГЁ: 16 ГЎГЁГІ
 	fprintf(logfile, "\n");
-	fprintf(logfile, "DATA "); // Данные
+	fprintf(logfile, "DATA "); // Г„Г Г­Г­Г»ГҐ
 	fprintf(logfile, "\n");
 
 	/*fprintf(logfile, "IP Header\n");
@@ -308,7 +308,7 @@ void PrintTcpPacket(char* Buffer, int Size)
 	fprintf(logfile, "\n###########################################################");*/
 }
 
-// Вывод UDP пакета
+// Г‚Г»ГўГ®Г¤ UDP ГЇГ ГЄГҐГІГ 
 void PrintUdpPacket(char* Buffer, int Size)
 {
 	unsigned short iphdrlen;
@@ -320,10 +320,10 @@ void PrintUdpPacket(char* Buffer, int Size)
 	PrintIpHeader(Buffer);
 
 	fprintf(logfile, "UDP Header\n");
-	fprintf(logfile, "Source Port : %d\n", ntohs(udp_header->source_port)); // Порт источника: 1-16 бит (16 бит)
-	fprintf(logfile, "Destination Port : %d\n", ntohs(udp_header->dest_port)); // Порт назначения: 17-32 бит (16 бит)
-	fprintf(logfile, "UDP Length : %d\n", ntohs(udp_header->udp_length)); // UDP звголовок: 16 бит
-	fprintf(logfile, "UDP Checksum : %d\n", ntohs(udp_header->udp_checksum)); // Контрольная сумма: 16 бит
+	fprintf(logfile, "Source Port : %d\n", ntohs(udp_header->source_port)); // ГЏГ®Г°ГІ ГЁГ±ГІГ®Г·Г­ГЁГЄГ : 1-16 ГЎГЁГІ (16 ГЎГЁГІ)
+	fprintf(logfile, "Destination Port : %d\n", ntohs(udp_header->dest_port)); // ГЏГ®Г°ГІ Г­Г Г§Г­Г Г·ГҐГ­ГЁГї: 17-32 ГЎГЁГІ (16 ГЎГЁГІ)
+	fprintf(logfile, "UDP Length : %d\n", ntohs(udp_header->udp_length)); // UDP Г§ГўГЈГ®Г«Г®ГўГ®ГЄ: 16 ГЎГЁГІ
+	fprintf(logfile, "UDP Checksum : %d\n", ntohs(udp_header->udp_checksum)); // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г : 16 ГЎГЁГІ
 
 	/*fprintf(logfile, "\n");
 	fprintf(logfile, "IP Header\n");
@@ -335,7 +335,7 @@ void PrintUdpPacket(char* Buffer, int Size)
 	fprintf(logfile, "\n###########################################################");*/
 }
 
-// Вывод ICMP пакета
+// Г‚Г»ГўГ®Г¤ ICMP ГЇГ ГЄГҐГІГ 
 void PrintIcmpPacket(char* Buffer, int Size)
 {
 	unsigned short iphdrlen;
@@ -348,15 +348,15 @@ void PrintIcmpPacket(char* Buffer, int Size)
 	PrintIpHeader(Buffer);
 	
 	fprintf(logfile, "ICMP Header\n");
-	fprintf(logfile, "Type : %d", (unsigned int)(icmp_header->type)); // Тип: 1-8 бит (8 бита)
+	fprintf(logfile, "Type : %d", (unsigned int)(icmp_header->type)); // Г’ГЁГЇ: 1-8 ГЎГЁГІ (8 ГЎГЁГІГ )
 	if ((unsigned int)(icmp_header->type) == 11)
 		fprintf(logfile, " (TTL Expired)\n");
 	else if ((unsigned int)(icmp_header->type) == 0)
 		fprintf(logfile, " (ICMP Echo Reply)\n");
-	fprintf(logfile, "Code : %d\n", (unsigned int)(icmp_header->code)); // Код: 9-16 бит (8 бита)
-	fprintf(logfile, "Checksum : %d\n", ntohs(icmp_header->checksum)); // Контрольная сумма 17-32 (16 бит)
-	fprintf(logfile, "Identifier : %d\n", ntohs(icmp_header->id)); // Идентификатор: 16 бит
-	fprintf(logfile, "Sequence Number: %d\n", ntohs(icmp_header->seq)); // Номер последовательности: 16 бит
+	fprintf(logfile, "Code : %d\n", (unsigned int)(icmp_header->code)); // ГЉГ®Г¤: 9-16 ГЎГЁГІ (8 ГЎГЁГІГ )
+	fprintf(logfile, "Checksum : %d\n", ntohs(icmp_header->checksum)); // ГЉГ®Г­ГІГ°Г®Г«ГјГ­Г Гї Г±ГіГ¬Г¬Г  17-32 (16 ГЎГЁГІ)
+	fprintf(logfile, "Identifier : %d\n", ntohs(icmp_header->id)); // Г€Г¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г°: 16 ГЎГЁГІ
+	fprintf(logfile, "Sequence Number: %d\n", ntohs(icmp_header->seq)); // ГЌГ®Г¬ГҐГ° ГЇГ®Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г®Г±ГІГЁ: 16 ГЎГЁГІ
 	fprintf(logfile, "\n");
 
 	/*fprintf(logfile, "IP Header\n");
